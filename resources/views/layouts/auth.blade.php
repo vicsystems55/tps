@@ -19,7 +19,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="{{config('app.url')}}assets/css/app.css" rel="stylesheet">
 	<link href="{{config('app.url')}}assets/css/icons.css" rel="stylesheet">
-	<title>InterTrade</title>
+	<title>TPS</title>
 </head>
 
 <body class="bg-login">

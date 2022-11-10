@@ -23,90 +23,65 @@ class UserTableSeeder extends Seeder
 
             [
                 'name' => 'Eghosa Ogedegbe',
-                'email' => 'eghosa@intertradeltd.biz',
-                'password' => Hash::make('Intertrade_admin1@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
+                'email' => 'eghosa@tpsapp.net',
+                'password' => Hash::make('tpsapp1@2022'),
+                'user_code' => 'TPS'.rand(11000,99990),
                 'role' => 'admin',
             ],
 
             [
                 'name' => 'Ukiaghe Ogedegbe',
-                'email' => 'ukiaghe@intertradeltd.biz',
-                'password' => Hash::make('Intertrade_admin2@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
+                'email' => 'ukiaghe@tpsapp.net',
+                'password' => Hash::make('tpsapp2@2022'),
+                'user_code' => 'TPS'.rand(11000,99990),
                 'role' => 'accounts',
             ],
 
             [
                 'name' => 'Ejiro Ogedegbe',
-                'email' => 'ejiro@intertradeltd.biz',
-                'password' => Hash::make('Intertrade_admin3@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
+                'email' => 'ejiro@tpsapp.net',
+                'password' => Hash::make('tpsapp3@2022'),
+                'user_code' => 'TPS'.rand(11000,99990),
                 'role' => 'admin',
             ],
 
             [
                 'name' => 'Victor Asuquo',
-                'email' => 'victor@intertradeltd.biz',
-                'password' => Hash::make('Intertrade_admin4@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
-                'role' => 'superadmin',
+                'email' => 'victor@tpsapp.net',
+                'password' => Hash::make('tpsapp4@2022'),
+                'user_code' => 'TPS'.rand(11000,99990),
+                'role' => 'admin',
             ],
 
             [
                 'name' => 'Kingsley Ogedegbe',
                 'email' => 'udegbekingsley@gmail.com',
-                'password' => Hash::make('Intertrade_admin5@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
-                'role' => 'superadmin',
+                'password' => Hash::make('tpsapp5@2022'),
+                'user_code' => 'TPS'.rand(11000,99990),
+                'role' => 'admin',
             ],
 
             [
-                'name' => 'Isah Onu Ibrahim',
-                'email' => 'isa@intertradeltd.biz',
-                'password' => Hash::make('ibrahim@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
-                'role' => 'driver',
-            ],
-
-            [
-                'name' => 'Ernest Igiri',
-                'email' => 'ernest@intertradeltd.biz',
-                'password' => Hash::make('ernest@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
-                'role' => 'driver',
-            ],
-
-            [
-                'name' => 'Femi Olasunkami',
-                'email' => 'olasunkami@intertradeltd.biz',
-                'password' => Hash::make('olasunkami@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
-                'role' => 'driver',
-            ],
-
-
-            [
-                'name' => 'Peter Tankpinou',
-                'email' => 'peter@intertradeltd.biz',
-                'password' => Hash::make('peter@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
+                'name' => 'Tukur Rufai',
+                'email' => 'tukur@tpsapp.net',
+                'password' => Hash::make('tukur@2022'),
+                'user_code' => 'TPS'.rand(11000,99990),
                 'role' => 'technician',
             ],
 
             [
-                'name' => 'Ernest Igiri',
-                'email' => 'ernest2@intertradeltd.biz',
-                'password' => Hash::make('ernest@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
+                'name' => 'Imoke Moses',
+                'email' => 'imoke@tpsapp.net',
+                'password' => Hash::make('imoke@2022'),
+                'user_code' => 'TPS'.rand(11000,99990),
                 'role' => 'technician',
             ],
 
             [
-                'name' => 'Margaret',
-                'email' => 'margaret@intertradeltd.biz',
-                'password' => Hash::make('margaret@2021'),
-                'user_code' => 'ITL'.rand(11000,99990),
+                'name' => 'Nurudeen',
+                'email' => 'nurudeen@tpsapp.net',
+                'password' => Hash::make('nurudeen@2022'),
+                'user_code' => 'TPS'.rand(11000,99990),
                 'role' => 'secretary',
             ],
         ]);

@@ -43,7 +43,7 @@
 <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>InterTrade Admin</title>
+	<title>TPS </title>
 </head>
 
 <body>
@@ -62,41 +62,22 @@
 				</div>
 			</div>
 			<!--navigation-->
-			<div class="p-5"></div>
+			<div class="p-3"></div>
 
-
-
-            @if (Auth::user()->role == 'superadmin')
-
-                @include('layouts.sidebars.superadmin')
-
-                
-            @elseif(Auth::user()->role == 'admin')
+           @if(Auth::user()->role == 'admin')
 
                 @include('layouts.sidebars.admin')
 
 
-            @elseif(Auth::user()->role == 'driver')
+            @elseif(Auth::user()->role == 'field')
 
-                @include('layouts.sidebars.driver')
+                @include('layouts.sidebars.field')
 
+            @elseif(Auth::user()->role == 'unicef')
 
-            @elseif(Auth::user()->role == 'technician')
-
-                @include('layouts.sidebars.technician')
-
-
-            @elseif(Auth::user()->role == 'secretary')
-
-                @include('layouts.sidebars.secretary')
-
-
-            @elseif(Auth::user()->role == 'accounts')
-
-                 @include('layouts.sidebars.accounts')
-
-            
-        @endif
+                @include('layouts.sidebars.unicef')
+        
+        	@endif
 			
             
 

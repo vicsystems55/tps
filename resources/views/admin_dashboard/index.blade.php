@@ -7,34 +7,36 @@
     <div class="container">
         <h4 class="py-5">Hi, {{Auth::user()->name}}</h4>
     </div>
+    <div class="col-12 ">
+        <div class="card radius-10 border-start border-0 border-3 border-info">
+            <div class="card-body">
+                <div class="">
+                    <div>
+                        <h4 class="mb-0 text-secondary text-center">
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-            <div class="col">
-            <div class="card radius-10 border-start border-0 border-3 border-info">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <p class="mb-0 text-secondary">Projects</p>
-                            <h4 class="my-1 text-info">{{$projects->count()}}</h4>
-                         
-                        </div>
-                        <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
-                            <i class='lni lni-cog'></i>
-                        </div>
+                        IMPROVING WATER SANITATION AND HYGIENE CODE: IWASH 2022</h4>
+                       
+                     
                     </div>
+                    {{-- <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
+                        <i class='lni lni-cog'></i>
+                    </div> --}}
                 </div>
             </div>
-            </div>
+        </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+            
 
             
-            <a href="{{route('admin.deployments')}}" class="">
+            <a href="" class="">
                 <div class="col">
                     <div class="card radius-10 border-start border-0 border-3 border-info">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <p class="mb-0 text-secondary">Deployments</p>
-                                    <h4 class="my-1 text-info">{{$successful_deployments->count()}} / {{$deployments->count()}}</h4>
+                                    <p class="mb-0 text-secondary">LOTS</p>
+                                    <h4 class="my-1 text-info">12</h4>
                                  
                                 </div>
                                 <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
@@ -52,17 +54,9 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <p class="mb-0 text-secondary">Delivery Rate</p>
+                                <p class="mb-0 text-secondary">STATES</p>
                                 <h4 class="my-1 text-success">
-                                    {{number_format(
-                                    (
-                                        (
-                                        $successful_deployments->count()
-                                        /
-                                        $deployments->count()
-                                    )*100
-                                    ),2
-                                    )}}%
+                                 3
                                 </h4>
                                
                             </div>
@@ -74,14 +68,14 @@
                 </div>
             </div>
 
-            <a href="{{route('admin.reports')}}" class="">
+            <a href="" class="">
                 <div class="col">
                     <div class="card radius-10 border-start border-0 border-3 border-info">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <p class="mb-0 text-secondary">Reports</p>
-                                    <h4 class="my-1 text-info">{{$reports->count()}}</h4>
+                                    <p class="mb-0 text-secondary">SITES</p>
+                                    <h4 class="my-1 text-info">76</h4>
                                  
                                 </div>
                                 <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
@@ -100,7 +94,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
-                                <p class="mb-0 text-secondary">Staff</p>
+                                <p class="mb-0 text-secondary">REPORTS</p>
                                 <h4 class="my-1 text-warning">{{$users->count()}}</h4>
                                
                             </div>

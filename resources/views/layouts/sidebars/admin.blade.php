@@ -38,65 +38,50 @@
     </li>
     <li class="menu-label">UI Elements</li> -->
     <li>
-        <a href="{{route('admin')}}">
+        <a href="">
             <div class="parent-icon"><i class='bx bx-desktop'></i>
             </div>
             <div class="menu-title">Dashboard</div>
         </a>
     </li>
 
-    <li class="menu-label">Operations</li>
+    <li class="menu-label">Management</li>
     <li>
-     <a href="{{route('admin.projects')}}">
+     <a href="">
          <div class="parent-icon"><i class='bx bx-cog'></i>
          </div>
          <div class="menu-title">Projects</div>
         </a>
     </li>
     <li>
-        <a href="{{route('admin.deployments')}}">
+        <a href="">
             <div class="parent-icon"><i class='bx bx-cog'></i>
             </div>
-            <div class="menu-title">Deployments</div>
+            <div class="menu-title">All Programmes</div>
            </a>
     </li>
 
     <li>
-        <a href="{{route('admin.truck_routes')}}">
+        <a href="">
             <div class="parent-icon"><i class='bx bx-cog'></i>
             </div>
-            <div class="menu-title">Truck Routes</div>
+            <div class="menu-title">Contracts</div>
            </a>
     </li>
 
     <li>
-        <a href="{{route('admin.installation_schedule')}}">
+        <a href="">
             <div class="parent-icon"><i class='bx bx-book'></i>
             </div>
-            <div class="menu-title">Installation Schedule</div>
+            <div class="menu-title">Lots</div>
         </a>
     </li>
 
 
-    <li class="menu-label">Management</li>
-    <li>
-        <a href="{{route('admin.staff_records')}}">
-            <div class="parent-icon"><i class='lni lni-users'></i>
-            </div>
-            <div class="menu-title">Staff Records</div>
-        </a>
-    </li>
+  
 
     <li>
-        <a href="{{route('admin.inventories')}}">
-            <div class="parent-icon"><i class='lni lni-users'></i>
-            </div>
-            <div class="menu-title">Inventories</div>
-        </a>
-    </li>
-
-    <li>
-        <a href="{{route('admin.reports')}}">
+        <a href="">
             <div class="parent-icon"><i class='bx bx-book'></i>
             </div>
             <div class="menu-title">Reports</div>
@@ -110,24 +95,17 @@
 
     <li class="menu-label">Correspondence</li>
     <li>
-        <a href="{{route('admin.notifications')}}">
+        <a href="">
             <div class="parent-icon"><i class='bx bx-bell'></i>
             </div>
             <div class="menu-title">Notifications</div>
         </a>
     </li>
 
-    <li>
-        <a href="{{route('admin.messages')}}">
-            <div class="parent-icon"><i class='bx bx-message-alt-detail'></i>
-            </div>
-            <div class="menu-title">Messages</div>
-        </a>
-    </li>
     <li class="menu-label">Settings</li>
 
     <li>
-        <a href="{{route('admin.profile')}}">
+        <a href="">
             <div class="parent-icon"><i class='bx bx-user'></i>
             </div>
             <div class="menu-title">Profile</div>

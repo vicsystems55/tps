@@ -18,7 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->string('title');
             $table->longText('body');
             $table->string('status')->default('unread');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

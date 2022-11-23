@@ -15,6 +15,14 @@ class CreateCriticalStageQuestionsTable extends Migration
     {
         Schema::create('critical_stage_questions', function (Blueprint $table) {
             $table->id();
+            $table->longText('question');
+            $table->string('type');
+            $table->integer('order');
+            $table->integer('critical_stage');
+
+            $table->string('status');
+ 
+            $table->foreignId('facility_id')->constrained();
             $table->timestamps();
         });
     }

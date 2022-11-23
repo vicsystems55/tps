@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSiteProfilesTable extends Migration
+class CreateLotAssignmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSiteProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('site_profiles', function (Blueprint $table) {
+        Schema::create('lot_assignments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateSiteProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('site_profiles');
+        Schema::dropIfExists('lot_assignments');
     }
 }

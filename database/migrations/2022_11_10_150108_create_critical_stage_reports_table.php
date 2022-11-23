@@ -15,6 +15,24 @@ class CreateCriticalStageReportsTable extends Migration
     {
         Schema::create('critical_stage_reports', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('site_id')->constrained();
+
+            $table->integer('order');
+
+            $table->foreignId('critical_stage_question_id')->constrained();
+
+            $table->longText('answer');
+
+            $table->string('status');
+
+            $table->integer('stage');
+
+            $table->date('inspection_date');
+
+            $table->date('mobilized_date');
+
+        
             $table->timestamps();
         });
     }

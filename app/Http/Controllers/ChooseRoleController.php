@@ -18,25 +18,13 @@ class ChooseRoleController extends Controller
                 return redirect('/admin');
             }
     
-            elseif (Auth::user()->role =='technician') {
-                return redirect('/technician');
+            elseif (Auth::user()->role =='field') {
+                return redirect('/field');
             }
     
-            elseif (Auth::user()->role =='driver') {
-                return redirect('/driver');
+            elseif (Auth::user()->role =='unicef') {
+                return redirect('/unicef');
             }
-            elseif (Auth::user()->role =='superadmin') {
-                return redirect('/superadmin');
-            }
-    
-            elseif (Auth::user()->role =='client') {
-                return redirect('/client');
-            }
-
-            elseif (Auth::user()->role =='accounts') {
-                return redirect('/accounts');
-            }
-    
             else{
                 abort(403);
             }

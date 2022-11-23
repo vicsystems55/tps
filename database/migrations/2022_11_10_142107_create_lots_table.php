@@ -15,23 +15,22 @@ class CreateLotsTable extends Migration
     {
         Schema::create('lots', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('contractor_id');
-            $table->foreignId('state_id');
+            $table->foreignId('contractor_id')->constrained();
+            $table->foreignId('state_id')->constrained();
             $table->string('code');
             $table->string('lot_no');
             $table->string('surfix');
             $table->string('prefix');
+            $table->foreignId('facility_id')->constrained();
+
+
 
 
             $table->integer('total_cost')->nullable();
             $table->integer('unicef_cost')->nullable();
-            $table->foreignId('contract_id');
+            $table->foreignId('contract_id')->constrained();
 
-
-
-
-
-            $table->timestamps();
+          $table->timestamps();
         });
     }
 

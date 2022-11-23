@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Site;
 use Illuminate\Http\Request;
 
+use App\Imports\SiteImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class SiteController extends Controller
 {
     /**
@@ -12,9 +15,12 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function import_sites()
     {
         //
+        $sites = Excel::import(new SiteImport, 'sites.xlsx');
+        
+        // return $sites;
     }
 
     /**

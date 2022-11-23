@@ -16,14 +16,13 @@ class CreateContractsTable extends Migration
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
             $table->longText('desc');
-            $table->foreignId('state_id');
+            $table->foreignId('state_id')->constrained();
             $table->string('phase');
-            $table->foreignId('supervision_team_id');
             $table->string('tranch');
             $table->date('award_date');
-            $table->integer('duration_in_months');
+            $table->integer('duration_in_months')->default(3);
             $table->date('delivery_date');
-            $table->foreignId('programme_id');
+            $table->foreignId('programme_id')->constrained();
             $table->string('name');
 
 

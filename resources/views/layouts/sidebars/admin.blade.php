@@ -1,4 +1,4 @@
-<div class="p-3">
+<div class="pt-5 px-2">
     <h6 class="font-weight-bold">
         Admin Dashboard
     </h6>
@@ -37,8 +37,8 @@
         </ul>
     </li>
     <li class="menu-label">UI Elements</li> -->
-    <li>
-        <a href="">
+    <li class="">
+        <a href="{{route('admin')}}">
             <div class="parent-icon"><i class='bx bx-desktop'></i>
             </div>
             <div class="menu-title">Dashboard</div>
@@ -46,23 +46,17 @@
     </li>
 
     <li class="menu-label">Management</li>
-    <li>
-     <a href="">
-         <div class="parent-icon"><i class='bx bx-cog'></i>
-         </div>
-         <div class="menu-title">Projects</div>
-        </a>
-    </li>
+    
     <li>
         <a href="">
             <div class="parent-icon"><i class='bx bx-cog'></i>
             </div>
-            <div class="menu-title">All Programmes</div>
+            <div class="menu-title">Programmes</div>
            </a>
     </li>
 
     <li>
-        <a href="">
+        <a href="{{route('admin.contracts')}}">
             <div class="parent-icon"><i class='bx bx-cog'></i>
             </div>
             <div class="menu-title">Contracts</div>
@@ -70,7 +64,7 @@
     </li>
 
     <li>
-        <a href="">
+        <a href="{{route('admin.lots')}}">
             <div class="parent-icon"><i class='bx bx-book'></i>
             </div>
             <div class="menu-title">Lots</div>

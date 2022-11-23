@@ -6,30 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
-use App\Models\TruckRoute;
-
-use App\Models\Inventory;
-
-use App\Models\Deployment;
-
-use App\Models\Notification;
-
-use App\Models\Message;
-
-use App\Models\Stock;
-
-use App\Models\Project;
-
-use App\Models\AccountHead;
-
-use App\Models\AccountSubHead;
-
-use App\Models\AccountMapping;
-
-use App\Models\DeploymentReport;
-
 use App\Models\ReportImage;
 
+use App\Models\Lot;
+
+use App\Models\Site;
+
+use App\Models\SiteProfileAttribute;
+
+use App\Models\CriticalStageQuestion;
+
+use App\Models\MeasurementQuestion;
+
+
+use App\Models\Contract;
 
 
 use Illuminate\Support\Facades\Http;
@@ -48,232 +38,81 @@ class AdminPageController extends Controller
 
         $users = User::latest()->get();
 
+        $lots = Lot::latest()->get();
+
+        $sites = Site::latest()->get();
+
+
    
 
         // dd($reports);
 
 
-        return view('admin_dashboard.index',[
-
-            'users' => $users,
-          
-        ]);
+        return view('admin_dashboard.index',compact('lots', 'users', 'sites'));
     }
 
-    public function inventories()
+    public function lots()
     {
-        $inventories = Inventory::latest()->get();
+
+        $lots = Lot::with(['contractor', 'state', 'sites'])->get();
+
+        // return $lots;
+        
                 
-        return view('admin_dashboard.inventories',[
-            'inventories' => $inventories,
-        ]);
+        return view('admin_dashboard.lots',compact('lots'));
     }
 
-    public function inventory($inventory_id)
-    {
-        $inventory = Inventory::where('id', $inventory_id)->first();
-        
-        return view('admin_dashboard.inventory',[
-            'inventory' => $inventory
-        ]);
-    }
-
-    public function messages()
+    public function lot($lot_code)
     {
 
-        $messages = Message::with('fr_oms')->where('t_o', Auth::user()->id)->latest()->get();
+        $lot = Lot::with(['contractor', 'state', 'sites.lga', 'facility'])->where('code', $lot_code)->first();
+        $site_profile_attributes = SiteProfileAttribute::get();
 
-        $users = User::latest()->get();
+        // return $lot;
         
-        
-        return view('general.messages',[
-            'messages' => $messages,
-            'users' => $users
-        ]);
+                
+        return view('admin_dashboard.lot',compact('lot', 'site_profile_attributes'));
     }
 
-    public function notifications()
+    public function contracts()
     {
 
-      event(new \App\Events\SmartMessageEvent('newTask'));
+        $contracts = Contract::with(['state.lga','lots'])->get();
 
-        // dd($event);
 
-        $notifications = Notification::where('user_id', Auth::user()->id)->get();
+        $sites = Site::get();
 
-        $notificationx = Notification::where('user_id', Auth::user()->id)->update([
-            'status' => 'read'
-        ]);
+        $lots = Lot::get();
+
+
+
+        // return $lots;
         
-        
-        return view('general.notifications',[
-
-            'notifications' => $notifications
-            
-        ]);
+                
+        return view('admin_dashboard.contracts',compact('contracts', 'sites', 'lots'));
     }
 
-    public function orders()
-    {
-        
-        
-        return view('admin_dashboard.orders');
-    }
-
-    public function order($order_id)
-    {
-        
-        
-        return view('admin_dashboard.order');
-    }
-
-    public function profile()
-    {
-        
-        
-        return view('admin_dashboard.profile');
-    }
-
-    public function reports()
+    public function site($site_id)
     {
 
+        $site = Site::with(['lga', 'facility', 'lot'])->find($site_id);
 
-        $reports = DeploymentReport::where('status', 'submitted')->with('report_images')->with('reporters')->latest()->get();
+        $site_profile = SiteProfileAttribute::where('facility_id', $site->facility_id)->get();
 
-        // dd($reports);
+        $critical_stage_questions = CriticalStageQuestion::where('facility_id', 1)->get();
 
+        $measurement_questions = MeasurementQuestion::where('facility_id', $site->facility_id)->get();
+
+        // return $critical_stage_questions;
         
-        
-        return view('admin_dashboard.reports',[
-            'reports' => $reports
-        ]);
+                
+        return view('admin_dashboard.site_profile',compact(
+            'site', 
+            'site_profile', 
+            'critical_stage_questions',
+            'measurement_questions'
+        )); 
     }
-
-    public function report($report_id)
-    {
-
-        $report = DeploymentReport::with('report_images')->with('reporters')->where('id', $report_id)->first();
-
-        
-        
-        
-        return view('admin_dashboard.report',[
-            'report' => $report,
-        
-        ]);
-    }
-
-    public function staff_records()
-    {
-        $users = User::latest()->get();
-        
-        return view('admin_dashboard.staff_records',[
-            'users' => $users
-        ]);
-    }
-
-    public function staff_record($user_id)
-    {
-        $user = User::where('id', $user_id)->first();
-        
-        
-        return view('admin_dashboard.staff_record',[
-            'user' => $user
-        ]);
-    }
-
-    public function projects()
-    {
-
-        $projects = Project::latest()->get();
-        
-        return view('admin_dashboard.projects',[
-
-            'projects' => $projects
-
-        ]);
-    }
-
-    public function project($project_id)
-    {
-
-        $project = Project::where('id', $project_id)->first();
-
-        $deployments = Deployment::latest()->get();
-        
-        
-        return view('admin_dashboard.project',[
-            'project' => $project,
-            'deployments' => $deployments
-        ]);
-    }
-
-
-
-    public function deployments()
-    {
-        $project = Project::where('id', 1)->first();
-
-        $deployments = Deployment::latest()->get();
-        
-        
-        return view('general.deployments',[
-
-            'deployments' => $deployments,
-            'project' => $project
-        ]);
-    }
-
-    public function deployment($deployment_id)
-    {
-
-        $deployment = Deployment::where('id', $deployment_id)->first();
-        
-        
-        return view('general.deployment',[
-            'deployment' => $deployment
-        ]);
-    }
-    
-    public function truck_routes()
-    {
-
-        $trucka_routes = TruckRoute::with('deployments')->with('drivers')->where('inventory_id', 1)->get();
-
-        $truckb_routes = TruckRoute::with('deployments')->with('drivers')->where('inventory_id', 2)->get();
-
-        // dd($trucka_routes);
-        
-        
-        return view('general.truck_routes',[
-
-            'trucka_routes' => $trucka_routes,
-            'truckb_routes' => $truckb_routes,
-
-        ]);
-    }
-
-    public function truck_route($truck_route_id)
-    {
-
-        $truck_routes = TruckRoute::where('id', $truck_route_id)->latest()->first();
-        
-        
-        return view('general.truck_route',[
-
-            'truck_routes' => $truck_routes
-            
-        ]);
-    }
-
-    public function ucc_update()
-    {
-        # code...
-
-
-        return redirect('https://docs.google.com/spreadsheets/d/1TQn_KI1BcH2KxAEvQmKqcJgwLPAKWF0X8zegOQ0RP1E/edit#gid=0');
-    }
-
 
 
 }

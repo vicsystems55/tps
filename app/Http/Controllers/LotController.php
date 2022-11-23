@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Lot;
 use Illuminate\Http\Request;
 
+use App\Imports\LotImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class LotController extends Controller
 {
     /**
@@ -12,9 +15,12 @@ class LotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function import_lots()
     {
         //
+        $lots = Excel::import(new LotImport, 'lots.xlsx');
+        
+        // return $lots;
     }
 
     /**

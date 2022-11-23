@@ -1,4 +1,4 @@
-<div class="p-3">
+<div class="p-5">
     <h6 class="font-weight-bold">
         Field Officer Dashboard
     </h6>
@@ -50,40 +50,23 @@
      <a href="">
          <div class="parent-icon"><i class='bx bx-cog'></i>
          </div>
-         <div class="menu-title">Projects</div>
+         <div class="menu-title">Lots</div>
         </a>
     </li>
     <li>
         <a href="">
             <div class="parent-icon"><i class='bx bx-cog'></i>
             </div>
-            <div class="menu-title">All Programmes</div>
+            <div class="menu-title">Sites</div>
            </a>
     </li>
 
-    <li>
-        <a href="">
-            <div class="parent-icon"><i class='bx bx-cog'></i>
-            </div>
-            <div class="menu-title">Contracts</div>
-           </a>
-    </li>
-
-    <li>
-        <a href="">
-            <div class="parent-icon"><i class='bx bx-book'></i>
-            </div>
-            <div class="menu-title">Lots</div>
-        </a>
-    </li>
-
-
-    <li class="menu-label">Rep</li>
+    <li class="menu-label">Reports</li>
     <li>
         <a href="">
             <div class="parent-icon"><i class='lni lni-users'></i>
             </div>
-            <div class="menu-title">Staff Records</div>
+            <div class="menu-title">Comments</div>
         </a>
     </li>
 
@@ -91,7 +74,7 @@
         <a href="">
             <div class="parent-icon"><i class='lni lni-users'></i>
             </div>
-            <div class="menu-title">Inventories</div>
+            <div class="menu-title">Media</div>
         </a>
     </li>
 
@@ -99,7 +82,7 @@
         <a href="">
             <div class="parent-icon"><i class='bx bx-book'></i>
             </div>
-            <div class="menu-title">Reports</div>
+            <div class="menu-title">Log Book</div>
         </a>
     </li>
 
@@ -117,6 +100,14 @@
         </a>
     </li>
 
+    <li>
+        <a href="">
+            <div class="parent-icon"><i class='bx bx-bell'></i>
+            </div>
+            <div class="menu-title">Messages</div>
+        </a>
+    </li>
+
     <li class="menu-label">Settings</li>
 
     <li>
@@ -129,21 +120,6 @@
 
 
 
-    <li>
-        <a href="#">
-            <div class="parent-icon">
-            </div>
-            <div class="menu-title">
-
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Switch to Admin</label>
-                </div>
-
-
-            </div>
-        </a>
-    </li>
 
    
     

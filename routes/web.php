@@ -4,12 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\ChooseRoleController;
 use App\Http\Controllers\AdminPageController;
-
-
-
-
-
-
+use App\Http\Controllers\FieldOfficerPageController;
+use App\Http\Controllers\PDFController;
 
 
 /*
@@ -49,12 +45,30 @@ Route::get('auth/{provider}', [SocialiteController::class, 'redirectToProvider']
 Route::get('auth/{provider}/callback', [SocialiteController::class, 'handleProviderCallback']);
 
 
+Route::get('/getmacshellexec',function()
+    {
+        $shellexec = shell_exec('getmac'); 
+        return $shellexec;
+    }
+);
+
 
 // Admin
 
 Route::group(['middleware' => ['auth'],  'prefix' => 'admin'], function(){
 
     Route::get('/', [AdminPageController::class, 'index'])->name('admin');
+
+    Route::get('/lots', [AdminPageController::class, 'lots'])->name('admin.lots');
+
+    Route::get('/lot/{lot_code}', [AdminPageController::class, 'lot'])->name('admin.lot');
+
+    Route::get('/site/{site_id}', [AdminPageController::class, 'site'])->name('admin.site');
+
+    Route::get('/contracts', [AdminPageController::class, 'contracts'])->name('admin.contracts');
+
+
+
 
     Route::get('/notifications', [NotificationController::class, 'notifications'])->name('admin.notifications');
 
@@ -83,10 +97,21 @@ Route::group(['middleware' => ['auth'],  'prefix' => 'unicef'], function(){
 });
 
 
+Route::post('/generate_report', [PDFController::class, 'generate_report'])->name('generate.pdf');
+
+Route::post('/preview_report', [PDFController::class, 'preview_report'])->name('preview.report');
+
+
+
+
 // mobile layout
 
 Route::get('/mobile', function () {
     return view('mobile_layout.app');
+});
+
+Route::get('admin/success', function () {
+    return view('admin_dashboard.success');
 });
 
 

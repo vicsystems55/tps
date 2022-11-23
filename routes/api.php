@@ -7,6 +7,14 @@ use App\Http\Controllers\RequisitionController;
 
 use App\Http\Controllers\TpsaNotificationController;
 
+use App\Http\Controllers\SiteController;
+
+use App\Http\Controllers\LotController;
+
+use App\Http\Controllers\PDFController;
+
+
+
 
 
 use Illuminate\Support\Facades\Auth;
@@ -30,3 +38,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/create_requistion_request', [RequisitionController::class, 'create_requisition']);
 
 Route::post('/notify_email', [TpsaNotificationController::class, 'notify_email']);
+
+Route::get('/import_sites', [SiteController::class, 'import_sites']);
+
+Route::get('/import_lots', [LotController::class, 'import_lots']);
+
+Route::get('/generate_pdf', [PDFController::class, 'generate_pdf']);
+
+
+
+
+
+
+
+

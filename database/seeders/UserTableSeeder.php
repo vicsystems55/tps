@@ -34,7 +34,7 @@ class UserTableSeeder extends Seeder
                 'email' => 'ukiaghe@tpsapp.net',
                 'password' => Hash::make('tpsapp2@2022'),
                 'user_code' => 'TPS'.rand(11000,99990),
-                'role' => 'accounts',
+                'role' => 'admin',
             ],
 
             [
@@ -66,7 +66,7 @@ class UserTableSeeder extends Seeder
                 'email' => 'tukur@tpsapp.net',
                 'password' => Hash::make('tukur@2022'),
                 'user_code' => 'TPS'.rand(11000,99990),
-                'role' => 'technician',
+                'role' => 'field',
             ],
 
             [
@@ -74,7 +74,7 @@ class UserTableSeeder extends Seeder
                 'email' => 'imoke@tpsapp.net',
                 'password' => Hash::make('imoke@2022'),
                 'user_code' => 'TPS'.rand(11000,99990),
-                'role' => 'technician',
+                'role' => 'field',
             ],
 
             [
@@ -82,7 +82,7 @@ class UserTableSeeder extends Seeder
                 'email' => 'nurudeen@tpsapp.net',
                 'password' => Hash::make('nurudeen@2022'),
                 'user_code' => 'TPS'.rand(11000,99990),
-                'role' => 'secretary',
+                'role' => 'field',
             ],
         ]);
     }

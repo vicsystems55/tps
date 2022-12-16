@@ -114,5 +114,37 @@ class AdminPageController extends Controller
         )); 
     }
 
+    public function sites()
+    {
+
+        $sites = Site::all();
+
+        // $site_profile = SiteProfileAttribute::where('facility_id', $site->facility_id)->get();
+
+        // $critical_stage_questions = CriticalStageQuestion::where('facility_id', 1)->get();
+
+        // $measurement_questions = MeasurementQuestion::where('facility_id', $site->facility_id)->get();
+
+        // return $critical_stage_questions;
+        
+                
+        return view('admin_dashboard.sites',compact(
+            'sites', 
+            // 'site_profile', 
+            // 'critical_stage_questions',
+            // 'measurement_questions'
+        )); 
+    }
+
+    public function notifications()
+    {
+        return view('admin_dashboard.notifications');
+    }
+
+    public function valuations()
+    {
+        return view('admin_dashboard.valuations');
+    }
+
 
 }

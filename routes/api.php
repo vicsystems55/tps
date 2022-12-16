@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LotBoqController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,9 @@ Route::post('/notify_email', [TpsaNotificationController::class, 'notify_email']
 Route::get('/import_sites', [SiteController::class, 'import_sites']);
 
 Route::get('/import_lots', [LotController::class, 'import_lots']);
+
+Route::get('/import_boq', [LotBoqController::class, 'import_boq']);
+
 
 Route::get('/generate_pdf', [PDFController::class, 'generate_pdf']);
 

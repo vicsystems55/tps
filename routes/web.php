@@ -1,11 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-use App\Http\Controllers\ChooseRoleController;
-use App\Http\Controllers\AdminPageController;
-use App\Http\Controllers\FieldOfficerPageController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\ChooseRoleController;
+use App\Http\Controllers\UnicefPageController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\FieldOfficerPageController;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -61,17 +65,19 @@ Route::group(['middleware' => ['auth'],  'prefix' => 'admin'], function(){
 
     Route::get('/lots', [AdminPageController::class, 'lots'])->name('admin.lots');
 
+    Route::get('/sites', [AdminPageController::class, 'sites'])->name('admin.sites');
+
+    Route::get('/notifications', [AdminPageController::class, 'notifications'])->name('admin.notifications');
+
+    Route::get('/valuations', [AdminPageController::class, 'valuations'])->name('admin.valuations');
+
+
+
     Route::get('/lot/{lot_code}', [AdminPageController::class, 'lot'])->name('admin.lot');
 
     Route::get('/site/{site_id}', [AdminPageController::class, 'site'])->name('admin.site');
 
     Route::get('/contracts', [AdminPageController::class, 'contracts'])->name('admin.contracts');
-
-
-
-
-    Route::get('/notifications', [NotificationController::class, 'notifications'])->name('admin.notifications');
-
 
 
 });
@@ -113,9 +119,6 @@ Route::get('/mobile', function () {
 Route::get('admin/success', function () {
     return view('admin_dashboard.success');
 });
-
-
-
 
 
 Auth::routes();

@@ -16,7 +16,7 @@ class CreateSiteLotBoqLineAnswersTable extends Migration
         Schema::create('site_lot_boq_line_answers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('critical_stage_question_id')->constrained();
-            $table->foreignId('field_officer_id')->constrained();
+            $table->foreignId('field_officer_id');
             $table->string('length');
             $table->string('breadth');
             $table->string('depth');

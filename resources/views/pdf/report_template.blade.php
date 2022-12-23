@@ -79,7 +79,7 @@
           </div>
           
        
-          <h2 style="padding-top: 150px;" class="tm_f16 tm_section_heading tm_border_color tm_mb15  "><span class="tm_gray_bg">Media</span></h2>
+          <h2 class="tm_f16 tm_section_heading tm_border_color tm_mb15  "><span class="tm_gray_bg">Media</span></h2>
           <div class="tm_grid_row tm_col_3 tm_mb30">
             <div>
               <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
@@ -142,6 +142,92 @@
           <span class="tm_btn_text">Download</span>
         </button>
       </div>
+    </div>
+  </div>
+
+  <div class="tm_container">
+    <div class="tm_invoice_wrap">
+
+     
+      <div class="tm_invoice tm_style1" id="tm_download_section">
+        <div class="tm_invoice_in">
+          
+         
+         
+          <h2 class="tm_f16 tm_section_heading tm_border_color tm_mb15"><span class="tm_gray_bg">Site Profile</span></h2>
+          <div class="tm_grid_row tm_col_3 tm_mb30">
+            @foreach ($site_profile as $profile)
+            <div>
+              <span>{{$profile->question}}</span><br>
+              <b style="color: green;" class="tm_primary_color tm_medium">Done</b>
+            </div>
+                
+            @endforeach
+          
+          </div>
+          <h2 class="tm_f16 tm_section_heading tm_border_color tm_mb15"><span class="tm_gray_bg">Critical Stage 1</span></h2>
+          <div class="tm_grid_row tm_col_3 tm_mb30">
+            @foreach ($critical_stage_questions->where('critical_stage', 1) as $critical)
+            <div>
+              <span>{{$critical->question}}</span><br>
+              <b class="tm_primary_color tm_medium">OK</b>
+            </div>
+                
+            @endforeach
+          
+          </div>
+          
+       
+          <h2  class="tm_f16 tm_section_heading tm_border_color tm_mb15  "><span class="tm_gray_bg">Media</span></h2>
+          <div class="tm_grid_row tm_col_3 tm_mb30">
+            <div>
+              <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
+            </div>
+            <div>
+              <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
+            </div>
+            <div>
+              <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
+            </div>
+            <div>
+              <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
+            </div>
+            <div>
+              <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
+            </div>
+            <div>
+              <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
+            </div>
+            <div>
+              <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
+            </div>
+            <div>
+              <img style="height: 120px;" class="shadow" src="{{url('/assetsx')}}/img/map@2x.png" alt="">
+            </div>
+            
+          </div>
+          <h2 class="tm_f16 tm_section_heading tm_border_color tm_mb15"><span class="tm_gray_bg">Paid Out From</span></h2>
+          <div class="tm_grid_row tm_col_3 tm_mb30">
+            <div>
+              <span>Bank Name & Branch: </span><br>
+              <b class="tm_primary_color tm_medium">Canadian Bank</b>
+            </div>
+            <div>
+              <span>Delivered By: </span><br>
+              <b class="tm_primary_color tm_medium">Cash</b>
+            </div>
+            <div>
+              <span>Reference: </span><br>
+              <b class="tm_primary_color tm_medium">SM2455452114545</b>
+            </div>
+          </div>
+          <div class="tm_padd_15_20 tm_round_border">
+            <p class="tm_mb0"><b class="tm_primary_color">Terms & Conditions</b></p>
+            <p class="tm_m0">Invoice was created on a computer and is valid without the signature and seal. If you have any problem then come to our office and our support team will help you.</p>
+          </div><!-- .tm_note -->
+        </div>
+      </div>
+      
     </div>
   </div>
   <script src="assets/js/jquery.min.js"></script>

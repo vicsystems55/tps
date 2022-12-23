@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CriticalStageReport;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\CriticalStageReport;
+use App\Models\CriticalStageQuestion;
 
 class CriticalStageReportController extends Controller
 {
@@ -36,6 +38,37 @@ class CriticalStageReportController extends Controller
     public function store(Request $request)
     {
         //
+
+        CriticalStageReport::where('stage', $request->stage)->where('site_id', $request->site_id)->delete();
+
+
+
+        for ($i=0; $i < count($request->criticalQuestions); $i++) { 
+            # code...
+            $question = CriticalStageQuestion::find($request->criticalQuestions[$i]);
+
+            // return $question_id;
+            
+
+            CriticalStageReport::create([
+                
+                'site_id' => $request->site_id,
+                'order' => 2,
+                'critical_stage_question_id' => $question->id,
+                'answer' => $request->criticalAnswers[$i],
+                'status' => 'active',
+                'stage' => $request->stage,
+                'inspection_date' => '2022-12-01',
+                'mobilized_date' => '2022-12-01',
+            ]);
+
+
+        }
+
+        return back()->with('msg2', 'Critical Stage Updated');
+
+
+        return $request->all();
     }
 
     /**

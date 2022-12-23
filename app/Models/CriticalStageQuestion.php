@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CriticalStageQuestion extends Model
 {
     use HasFactory;
+
+
+
 }

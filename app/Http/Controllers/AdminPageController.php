@@ -2,30 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Models\User;
-
-use App\Models\ReportImage;
+use Auth;
 
 use App\Models\Lot;
 
 use App\Models\Site;
 
-use App\Models\SiteProfileAttribute;
+use App\Models\User;
 
-use App\Models\CriticalStageQuestion;
+use App\Models\Contract;
+
+use App\Models\ReportImage;
+
+use App\Models\SiteProfile;
+
+use Illuminate\Http\Request;
+
+
+use App\Models\CriticalStageReport;
+
 
 use App\Models\MeasurementQuestion;
 
 
-use App\Models\Contract;
-
-
+use App\Models\SiteProfileAttribute;
 use Illuminate\Support\Facades\Http;
-
-
-use Auth;
+use App\Models\CriticalStageQuestion;
 
 class AdminPageController extends Controller
 {
@@ -97,19 +99,28 @@ class AdminPageController extends Controller
 
         $site = Site::with(['lga', 'facility', 'lot'])->find($site_id);
 
+        
         $site_profile = SiteProfileAttribute::where('facility_id', $site->facility_id)->get();
-
+        
+        $site_profile_answers = SiteProfile::where('site_id', $site_id)->get();
+        
         $critical_stage_questions = CriticalStageQuestion::where('facility_id', 1)->get();
+        // return $critical_stage_questions;
+
+        $critical_stage_questions_answers = CriticalStageReport::where('site_id', $site_id)->get();
+        
 
         $measurement_questions = MeasurementQuestion::where('facility_id', $site->facility_id)->get();
 
-        // return $critical_stage_questions;
+        // return $critical_stage_questions_answers;
         
                 
         return view('admin_dashboard.site_profile',compact(
             'site', 
             'site_profile', 
+            'site_profile_answers',
             'critical_stage_questions',
+            'critical_stage_questions_answers',
             'measurement_questions'
         )); 
     }

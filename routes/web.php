@@ -9,6 +9,10 @@ use App\Http\Controllers\ChooseRoleController;
 use App\Http\Controllers\UnicefPageController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FieldOfficerPageController;
+use App\Http\Controllers\SiteProfileController;
+use App\Http\Controllers\CriticalStageReportController;
+
+
 use Illuminate\Support\Facades\Auth;
 
 
@@ -106,6 +110,12 @@ Route::group(['middleware' => ['auth'],  'prefix' => 'unicef'], function(){
 Route::post('/generate_report', [PDFController::class, 'generate_report'])->name('generate.pdf');
 
 Route::post('/preview_report', [PDFController::class, 'preview_report'])->name('preview.report');
+
+Route::resource('siteProfile', SiteProfileController::class, ['names' => 'siteProfile']);
+
+Route::resource('criticalStateReport', CriticalStageReportController::class, ['names' => 'criticalStageReport']);
+
+
 
 
 

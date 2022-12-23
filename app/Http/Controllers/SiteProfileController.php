@@ -36,6 +36,22 @@ class SiteProfileController extends Controller
     public function store(Request $request)
     {
         //
+
+        SiteProfile::where('site_id', $request->site_id)->delete();
+
+        for ($i=0; $i < count($request->siteProfileAnswers); $i++) { 
+            # code...
+            SiteProfile::create([
+                'site_id' => $request->site_id,
+                'order' => 1,
+                'site_profile_attribute_id' => $request->siteProfileAnswers[$i],
+                'status' => 'acitve',
+            ]);
+    
+        }
+
+     
+        return back()->with('msg', 'Site Profile Updated');
     }
 
     /**

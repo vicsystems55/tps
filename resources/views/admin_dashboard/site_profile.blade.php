@@ -83,21 +83,39 @@
 
         <div class="card col-md-12">
             <div class="card-body">
-              
+                @if(Session::has('msg'))
+                <p class="alert alert-success">{{ Session::get('msg') }}</p>
+                @endif
 
+                <form action="{{route('siteProfile.store')}}" method="post">
+                   
+                    @csrf
+                    <input type="hidden" name="site_id" value="{{$site->id}}">
                 <div class="row">
                     @foreach ($site_profile as $question)
                         <div class="col-md-6">
-                            <div class="d-flex justify-content-between">
+                           
+                            <div class="d-flex justify-content-start">
+                                {{-- {{$question->id}}
+                                {{$site_profile_answers->where('site_profile_attribute_id', $question->id)->first()}} --}}
+                                @if ($site_profile_answers->where('site_profile_attribute_id', $question->id)->first())
+                                <div class="custom-control custom-checkbox px-5">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1" name="siteProfileAnswers[]" value="{{$question->id}}" checked>
+                                    <label class="custom-control-label " for="customCheck1"></label>
+                                </div>
+                                @else
+                                <div class="custom-control custom-checkbox px-5">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1" name="siteProfileAnswers[]" value="{{$question->id}}">
+                                    <label class="custom-control-label " for="customCheck1"></label>
+                                </div>
+                                @endif
+
                                 <div class="c">
                                     {{$question->question}} : 
 
                                 </div>
                                
-                                <div class="custom-control custom-checkbox px-5">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label " for="customCheck1"></label>
-                                </div>
+                               
 
                             </div>
                             
@@ -108,7 +126,14 @@
                         
                         
                         @endforeach
+
+                        
                 </div>
+
+                <div class="form-group d-flex justify-content-end">
+                    <button class="btn btn-primary ">Update Site</button>
+                </div>
+            </form>
                 
             </div>
         </div>
@@ -182,17 +207,40 @@
                 </ul>
                 <div class="tab-content pt-5" id="pills-tabContent">
                     <div class="tab-pane fade active show" id="primary-pills-home" role="tabpanel">
-                        
+                        @if(Session::has('msg2'))
+                        <p class="alert alert-success">{{ Session::get('msg2') }}</p>
+                        @endif
+                        <form action="{{route('criticalStageReport.store')}}" method="post">
+                   
+                            @csrf
+                            <input type="hidden" name="site_id" value="{{$site->id}}">
+                            <input type="hidden" name="stage" value="1">
+
+                  
                         <div class="row">
 
                             @forelse ($critical_stage_questions->where('critical_stage', 1) as $critical)
-                               <div class="col-md-6 border mb-3">
+
+                            @php
+
+                            $answer = $critical_stage_questions_answers
+                            ->where('stage', 1)
+                            ->where('critical_stage_question_id', $critical->id)
+                            ->first()
+                                
+                            @endphp
+
+                            
+                        
+                               <div class="col-md-6  mb-3">
                                     <div class="row table-striped">
                                         <div class="col-md-5 ">
                                             <h6>{{$critical->question}}</h6>
                                         </div>
                                         <div class="col-md-7 ">
-                                         <input type="text" class="form-control" placeholder="Answer">
+                                         <input type="hidden" class="form-control" placeholder="Answer" name="criticalQuestions[]" value="{{$critical->id??''}}">
+
+                                         <input type="text" class="form-control" placeholder="Answer" name="criticalAnswers[]" value="{{$answer->answer??''}}">
                                         </div>
                                     </div>
                                </div>
@@ -203,6 +251,11 @@
                             @endforelse
     
                         </div>
+
+                        <div class="form-group d-flex justify-content-end">
+                            <button class="btn btn-primary ">Update Critical Stage</button>
+                        </div>
+                    </form>
 
                         <div class="container-fluid">
 

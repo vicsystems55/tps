@@ -20,6 +20,8 @@ class CreateSiteLotBoqLineAnswersTable extends Migration
             $table->string('length');
             $table->string('breadth');
             $table->string('depth');
+            $table->string('comments');
+
             $table->string('status');
             $table->timestamps();
         });

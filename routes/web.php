@@ -11,6 +11,10 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FieldOfficerPageController;
 use App\Http\Controllers\SiteProfileController;
 use App\Http\Controllers\CriticalStageReportController;
+use App\Http\Controllers\StandardBoqLineController;
+
+
+
 
 
 use Illuminate\Support\Facades\Auth;
@@ -115,7 +119,7 @@ Route::resource('siteProfile', SiteProfileController::class, ['names' => 'sitePr
 
 Route::resource('criticalStateReport', CriticalStageReportController::class, ['names' => 'criticalStageReport']);
 
-
+Route::resource('stdBoqLines', StandardBoqLineController::class, ['names' => 'stdBoqLines']);
 
 
 

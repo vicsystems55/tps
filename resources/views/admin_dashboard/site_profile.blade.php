@@ -487,25 +487,33 @@
 
             </div>
             <div class="card-body">
+
+                
+                  
+
+
                 <div class="row">
-                    <div class="col-4">
-                      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        @foreach ($measurement_questions as $measure)
-                            <button 
-                            style="text-align: left;" 
-                            class="border text-right btn nav-link {{$loop->first?'active':''}}" 
-                            id="v-pills-home-tab" data-toggle="pill" 
-                            data-target="#v-pills-{{$measure->id}}" 
-                            type="button" 
-                            role="tab" 
-                            aria-controls="v-pills-home" 
-                            aria-selected="true">{{$measure->name}}</button>
-                            
-                        @endforeach
+                    <div  class="col-12">
+                      <div  style="width: 100%; overflow-x: scroll; overflow-y: hidden" class="nav nav-pill" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <div class="d-flex justify-content-start">
+
+                            @foreach ($measurement_questions as $measure)
+                                <button 
+                                style="text-align: left; min-width: 230px; height: 45px; font-size: 10px;" 
+                                class="border text-right btn font-weight-bold m-2 nav-link {{$loop->first?'active':''}}" 
+                                id="v-pills-home-tab" data-toggle="pill" 
+                                data-target="#v-pills-{{$measure->id}}" 
+                                type="button" 
+                                role="tab" 
+                                aria-controls="v-pills-home" 
+                                aria-selected="true">{{$measure->name}}</button>
+                                
+                            @endforeach
+                        </div>
                         
                       </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col-12">
                       <div class="tab-content" id="v-pills-tabContent">
 
                         @foreach ($measurement_questions as $measure)

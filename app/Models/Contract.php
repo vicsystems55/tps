@@ -24,4 +24,11 @@ class Contract extends Model
         
         return $this->hasMany(Lot::class);
     }
+
+    public function sites()
+    {
+        
+        
+        return $this->hasMany(Site::class);
+    }
 }

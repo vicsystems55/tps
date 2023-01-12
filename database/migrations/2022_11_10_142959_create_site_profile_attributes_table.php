@@ -20,6 +20,8 @@ class CreateSiteProfileAttributesTable extends Migration
             $table->integer('order');
             $table->string('status');
             $table->string('category');
+            $table->integer('weight')->default(5);
+
 
             $table->foreignId('facility_id')->constrained();
 

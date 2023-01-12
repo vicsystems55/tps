@@ -107,7 +107,7 @@
         </div><!--end row-->
 
          <div class="row">
-        <div class="col-12 col-lg-12 col-xl-12">
+        <div class="col-12 col-lg-12 col-xl-12 d-none">
           <div class="card radius-10">
             <div class="card-header bg-transparent">
                 <div class="d-flex align-items-center">
@@ -117,7 +117,7 @@
                     
                 </div>
                </div>
-             <div class="card-bod">
+             <div class="card-bod d-none">
                     {{-- <div id="dashboard-map" style="height: 250px"></div> --}}
                     <map-component></map-component>
                     

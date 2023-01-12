@@ -18,6 +18,7 @@ class CreateLotBoqsTable extends Migration
             $table->foreignId('lot_id')->constrained();
             $table->foreignId('facility_id')->constrained();
             $table->string('category');
+            $table->string('category_description');
             $table->string('description');
             $table->string('unit');
             $table->integer('qty');

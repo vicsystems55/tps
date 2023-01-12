@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\AllProject;
 use App\Models\Site;
 use Illuminate\Http\Request;
 
 use App\Imports\SiteImport;
+use App\Models\Mediabank;
 use Maatwebsite\Excel\Facades\Excel;
 
 class SiteController extends Controller
@@ -18,7 +20,10 @@ class SiteController extends Controller
     public function import_sites()
     {
         //
-        $sites = Excel::import(new SiteImport, 'sites.xlsx');
+        Excel::import(new SiteImport, 'sites.xlsx');
+
+        // Excel::import(new AllProject, 'testallprojects.xlsx');
+
         
         // return $sites;
     }
@@ -42,6 +47,42 @@ class SiteController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function uploadImages(Request $request)
+    {
+        # code...
+
+        $request->file('siteImage');
+        $doc = $request->file('siteImage');
+
+        
+        $new_name = rand().".".$doc->getClientOriginalExtension();
+        
+        $file1 = $doc->move(public_path('siteImages'), $new_name);
+        
+
+        // return $path;
+
+        $imageUploaded = Mediabank::create([
+            'path' => config('app.url').'siteImages/'.$new_name,
+            'media_type' => 'image',
+            'description' => $request->description,
+            'mediabankable_type' => Site::class,
+            'mediabankable_id' => $request->site_id,
+        ]);
+
+        return back();
+
+        
+        // $new_name = rand().".".$doc->getClientOriginalExtension();
+        
+        // $file1 = $doc->move(public_path('featured_images'), $new_name);
+
+
+      
+
+        // return $request->all();
     }
 
     /**

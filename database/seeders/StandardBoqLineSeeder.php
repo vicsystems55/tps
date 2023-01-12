@@ -678,6 +678,163 @@ class StandardBoqLineSeeder extends Seeder
                 'status' => 'active', 
             ],
 
+            [
+                'facility_id' => '1',
+                'category' => 'METAL WORK',
+                'description' => 'Provide see through metal gate, using GI wire mesh.',
+                'category_description' => ' Bill of Quantities For Fencing of solar installations using blocks&wire mesh (Type A, Perimeter = 30m)',
+                'unit' => 'nr',
+                'qty' => '1',
+                'rate' => '150000',
+                'amount' => '150000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'METAL WORK',
+                'description' => 'Provide and install 2inches pipes (GI) (3m length)',
+                'category_description' => ' Bill of Quantities For Fencing of solar installations using blocks&wire mesh (Type A, Perimeter = 30m)',
+                'unit' => 'nr',
+                'qty' => '13',
+                'rate' => '23000',
+                'amount' => '299000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'METAL WORK',
+                'description' => 'Provide and install wire guaze (GI) 2m high round the entire area.',
+                'category_description' => ' Bill of Quantities For Fencing of solar installations using blocks&wire mesh (Type A, Perimeter = 30m)',
+                'unit' => 'm2',
+                'qty' => '60',
+                'rate' => '2300',
+                'amount' => '138000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'METAL WORK',
+                'description' => 'Provide Binding wire',
+                'category_description' => ' Bill of Quantities For Fencing of solar installations using blocks&wire mesh (Type A, Perimeter = 30m)',
+                'unit' => 'kg',
+                'qty' => '5',
+                'rate' => '40000',
+                'amount' => '200000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'METAL WORK',
+                'description' => 'Provide Steel spikes on coping',
+                'category_description' => ' Bill of Quantities For Fencing of solar installations using blocks&wire mesh (Type A, Perimeter = 30m)',
+                'unit' => 'ls',
+                'qty' => '1',
+                'rate' => '1200',
+                'amount' => '1200',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'FINISHES',
+                'description' => 'Rendering entire block work, in and out',
+                'category_description' => ' Bill of Quantities For Fencing of solar installations using blocks&wire mesh (Type A, Perimeter = 30m)',
+                'unit' => 'm2',
+                'qty' => '28',
+                'rate' => '1300',
+                'amount' => '36400',
+                'status' => 'active', 
+            ],
+
+            
+            [
+                'facility_id' => '1',
+                'category' => 'SIGNBOARD',
+                'description' => 'Provide metal sheet, 1200mm x1050mm sheet (2mm gauge)',
+                'category_description' => 'BOQ FOR CONSTRUCTION OF SIGNBOARD',
+                'unit' => 'nr',
+                'qty' => '1',
+                'rate' => '1000',
+                'amount' => '1000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'SIGNBOARD',
+                'description' => 'Provide 3200mmx62.5mm diameter GI Pipe, BS, 3mm gauge for signboard stands',
+                'category_description' => 'BOQ FOR CONSTRUCTION OF SIGNBOARD',
+                'unit' => 'nr',
+                'qty' => '2',
+                'rate' => '25000',
+                'amount' => '50000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'SIGNBOARD',
+                'description' => 'Provide 25mmx25mm square metal pipe (2mm gauge), for support and framing around signboard edges.',
+                'category_description' => 'BOQ FOR CONSTRUCTION OF SIGNBOARD',
+                'unit' => 'nr',
+                'qty' => '1',
+                'rate' => '30000',
+                'amount' => '30000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'SIGNBOARD',
+                'description' => 'Paint, white, gloss, dulux brand, for background (1.3 ltrs); Paint, black, gloss, dulux brand, for stands (1.3 ltrs) and Paint, blue, gloss, dulux brand, for border lines (1.3 ltrs)',
+                'category_description' => 'BOQ FOR CONSTRUCTION OF SIGNBOARD',
+                'unit' => 'Ltrs',
+                'qty' => '3.9',
+                'rate' => '5000',
+                'amount' => '19500',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'SIGNBOARD',
+                'description' => ' Materials  and Labour for art works and paintings including 3-coats of antirust [Art works to include same write-up on both sides of  the signboard and to be neatly done with paints of specified quality and colour]',
+                'category_description' => 'BOQ FOR CONSTRUCTION OF SIGNBOARD',
+                'unit' => 'Ls',
+                'qty' => '1',
+                'rate' => '40000',
+                'amount' => '40000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'SIGNBOARD',
+                'description' => 'Labour for cutting, bracing and welding',
+                'category_description' => 'BOQ FOR CONSTRUCTION OF SIGNBOARD',
+                'unit' => 'Ls',
+                'qty' => '1',
+                'rate' => '60000',
+                'amount' => '60000',
+                'status' => 'active', 
+            ],
+
+            [
+                'facility_id' => '1',
+                'category' => 'SIGNBOARD',
+                'description' => 'Allow for delivery to site and installation, including accessories (nuts, bolts, etc.)',
+                'category_description' => 'BOQ FOR CONSTRUCTION OF SIGNBOARD',
+                'unit' => 'Ls',
+                'qty' => '1',
+                'rate' => '40000',
+                'amount' => '40000',
+                'status' => 'active', 
+            ],
+
 
 
 
@@ -685,6 +842,6 @@ class StandardBoqLineSeeder extends Seeder
 
             
             
-        ]);
+        );
     }
 }

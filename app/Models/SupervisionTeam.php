@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class SupervisionTeam extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function sites()
+    {
+        
+        return $this->hasMany(Site::class);
+    }
 }

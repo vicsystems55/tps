@@ -212,8 +212,6 @@ class SuperAdminPageController extends Controller
         ]);
     }
 
-
-
     public function truck_routes()
     {
 
@@ -248,6 +246,8 @@ class SuperAdminPageController extends Controller
 
         ]);
     }
+
+
 
     public function reports()
     {

@@ -30,13 +30,13 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>WARD</th>
+               
                         <th>LOCATION</th>
                         <th>LGA</th>
                         <th>STATE</th>
                         <th>FACILITY</th>
                         <th>LOT CODE</th>
-                        <th>FIELD OFFICER</th>
+              
                         <th>COMPLETION</th>
                         <th></th>
 
@@ -47,14 +47,28 @@
                     @forelse  ($sites as $site)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>{{$site->ward}}</td>
+                     
                         <td>{{$site->location}}</td>
                         <td>{{strtoupper($site->lga->name)}}</td>
                         <td>{{strtoupper($site->lga->state->name)}}</td>
                         <td>{{$site->facility->name}}</td>
                         <td>{{strtoupper($site->lot->code)}}</td>
-                        <td>--</td>
-                        <td>0%</td>
+                 
+                        <td>
+                          
+
+                            <div class="progress">
+                                <div 
+                                    class="progress-bar progress-bar-striped" 
+                                    role="progressbar" 
+                                    style="width: {{$site->percent_completion->percent??0}}%" 
+                                    aria-valuenow="{{$site->percent_completion->percent??0}}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="100">{{$site->percent_completion->percent??0}}%
+                                </div>
+                            </div>
+                        
+                        </td>
 
                         <td>
                             <a href="{{route('admin.site', $site->id)}}" class="btn btn-primary btn-sm">view site profile</a>

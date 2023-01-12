@@ -15,14 +15,29 @@ class CreateSiteLotBoqLineAnswersTable extends Migration
     {
         Schema::create('site_lot_boq_line_answers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('critical_stage_question_id')->constrained();
-            $table->foreignId('field_officer_id');
-            $table->string('length');
-            $table->string('breadth');
-            $table->string('depth');
-            $table->string('comments');
+            $table->foreignId('critical_stage_question_id')->nullable();
 
-            $table->string('status');
+            $table->foreignId('lot_boq_id')->constrained();
+
+            $table->foreignId('site_id')->constrained();
+
+
+            $table->foreignId('field_officer_id')->nullable();
+
+            $table->string('length')->nullable();
+            $table->string('breadth')->nullable();
+            $table->string('depth')->nullable();
+            $table->string('number')->nullable();
+            $table->string('comments')->nullable();
+            $table->string('status')->nullable();
+
+            $table->integer('cert_qty')->default(0);
+            $table->integer('cert_completion')->default(0);
+
+            $table->integer('cert_amount')->default(0);
+
+
+            
             $table->timestamps();
         });
     }

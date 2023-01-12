@@ -17,7 +17,11 @@ class StandardBoqLineController extends Controller
     {
         //
 
-        return view('admin_dashboard.standardBoqLine');
+        $boqLines = StandardBoqLine::get();
+
+        // return $boqLines;
+
+        return view('admin_dashboard.standardBoqLine', compact('boqLines'));
         
     }
 

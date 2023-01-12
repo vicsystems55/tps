@@ -9,9 +9,8 @@ class SiteProfileAttribute extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     
-    public function siteAttributes()
-    {
-        return $this->hasOne(SiteProfile::class);
-    }
+
 }

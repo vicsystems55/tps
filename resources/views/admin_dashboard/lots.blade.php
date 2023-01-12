@@ -159,23 +159,7 @@
                     </div>
             </div>
 
-            <div class="col-md-6 mx-auto">
-                <div class="form-group">
-                    <label for="boq">Upload BOQ</label>
-                    <input type="file" class="form-control">
-                </div>
 
-                <div class="form-group py-2">
-                    <label for="boq">Facility Type</label>
-                    <select name="" id="" class="form-control">
-                        <option value="">SM</option>
-                        <option value="">HPBH</option>
-                    </select>
-                </div>
-                <div class="form-group py-2">
-                    <button class="btn btn-primary  float-right">Upload</button>
-                </div>
-            </div>
             </div>
 
         </div>

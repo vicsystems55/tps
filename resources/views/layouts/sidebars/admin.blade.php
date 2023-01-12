@@ -4,7 +4,7 @@
     </h6>
 </div>
 
-<ul class="metismenu" id="menu">
+<ul class="metismenu mt-3" id="menu">
     <!-- <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class='bx bx-home-circle'></i>
@@ -79,7 +79,20 @@
         </a>
     </li>
 
-
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="bx bx-category"></i>
+            </div>
+            <div class="menu-title">Progress Report</div>
+        </a>
+        <ul>
+            <li> <a href="{{route('admin.contractReports')}}"><i class="bx bx-right-arrow-alt"></i>Contract Report</a>
+            </li>
+            <li> <a href="{{route('admin.valuations')}}"><i class="bx bx-right-arrow-alt"></i>Lot Report</a>
+            </li>
+          
+        </ul>
+    </li>
   
 
     <li>
@@ -89,6 +102,8 @@
             <div class="menu-title">Reports</div>
         </a>
         <ul>
+            <li> <a href="{{route('admin.valuations')}}"><i class="bx bx-right-arrow-alt"></i>Progress Report</a>
+            </li>
             <li> <a href="{{route('admin.valuations')}}"><i class="bx bx-right-arrow-alt"></i>Valuation</a>
             </li>
                {{-- <li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Chat Box</a>

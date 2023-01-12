@@ -17,6 +17,7 @@ class CreateMediabanksTable extends Migration
             $table->id();
             $table->string('path');
             $table->string('media_type');
+            $table->string('description');
             $table->string('status')->default('active');
             $table->morphs('mediabankable');
             $table->timestamps();

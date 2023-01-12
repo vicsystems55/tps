@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Site;
 use App\Models\SiteProfile;
 use Illuminate\Http\Request;
+use App\Models\SitePercentCompletion;
+use App\Models\SiteProfileAttribute;
 
 class SiteProfileController extends Controller
 {
@@ -49,6 +52,29 @@ class SiteProfileController extends Controller
             ]);
     
         }
+
+        $site = Site::with('site_profile')->find($request->site_id);
+
+        // return $site;
+
+        $site_profile = SiteProfile::with('site_attributes')->where('site_id', $site->id)->get();
+
+        // return $site_profile->sum('site_attributes.weight');
+
+        $site_total = SiteProfileAttribute::where('facility_id', $site->facility_id)->get();
+
+        // $site_weight_sum = $site_profile->site_attributes->sum('weight');
+
+        // return $site_total->sum('weight');
+
+        $percent = ($site_profile->sum('site_attributes.weight') / $site_total->sum('weight'))*100;
+
+        SitePercentCompletion::updateOrCreate([
+            'site_id' => $site->id,
+        ],[
+            'site_id' => $site->id,
+            'percent' => $percent
+        ]);
 
      
         return back()->with('msg', 'Site Profile Updated');

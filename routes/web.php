@@ -1,23 +1,26 @@
 <?php
 
 use App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\LotBoqController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ChooseRoleController;
 use App\Http\Controllers\UnicefPageController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\FieldOfficerPageController;
 use App\Http\Controllers\SiteProfileController;
-use App\Http\Controllers\CriticalStageReportController;
+use App\Http\Controllers\NotificationController;
+
+
+
+
+
 use App\Http\Controllers\StandardBoqLineController;
-
-
-
-
-
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\FieldOfficerPageController;
+use App\Http\Controllers\CriticalStageReportController;
+use App\Http\Controllers\SiteLotBoqLineAnswerController;
 
 
 /*
@@ -79,6 +82,15 @@ Route::group(['middleware' => ['auth'],  'prefix' => 'admin'], function(){
 
     Route::get('/valuations', [AdminPageController::class, 'valuations'])->name('admin.valuations');
 
+    
+    
+    Route::get('/valuation/{site_id}', [AdminPageController::class, 'valuation'])->name('admin.valuation');
+    
+    
+    Route::get('/contractReports', [AdminPageController::class, 'contractReports'])->name('admin.contractReports');
+
+    Route::get('/contractReport/{contractId}', [AdminPageController::class, 'contractReport'])->name('admin.contractReport');
+
 
 
     Route::get('/lot/{lot_code}', [AdminPageController::class, 'lot'])->name('admin.lot');
@@ -119,7 +131,17 @@ Route::resource('siteProfile', SiteProfileController::class, ['names' => 'sitePr
 
 Route::resource('criticalStateReport', CriticalStageReportController::class, ['names' => 'criticalStageReport']);
 
-Route::resource('stdBoqLines', StandardBoqLineController::class, ['names' => 'stdBoqLines']);
+Route::resource('stdBoqLines', StandardBoqLineController::class, ['names' => 'stdBoqLines'])->middleware('auth');
+
+Route::post('/import_boq', [LotBoqController::class, 'importBoq'])->name('import_boq')->middleware('auth');
+
+Route::get('/lotBoq/{lot_id}', [LotBoqController::class, 'lotBoq'])->name('lotBoq')->middleware('auth');
+
+Route::post('/siteLotBoqLineAnswers', [SiteLotBoqLineAnswerController::class, 'siteLotBoqLineAnswers'])->name('siteLotBoqLineAnswers')->middleware('auth');
+
+
+
+Route::post('/uploadImages', [SiteController::class, 'uploadImages'])->name('uploadImages')->middleware('auth');
 
 
 

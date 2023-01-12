@@ -11,8 +11,10 @@ class SiteProfile extends Model
 
     protected $guarded = [];
 
-    public function siteAttributes()
+    public function site_attributes()
     {
-        return $this->hasOne(SiteProfileAttribute::class);
+        return $this->belongsTo(SiteProfileAttribute::class, 'site_profile_attribute_id', 'id');
     }
+
+
 }

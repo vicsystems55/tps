@@ -25,13 +25,15 @@ class LotBoqImport implements ToModel, WithHeadingRow
     {
         return new LotBoq([
             //
+            'lot_id' => $this->lot_id,
+            'facility_id' => $this->facility_id,
             'category' => $row['category'],
             'description' => $row['description'],
             'unit' => $row['unit'],
             'qty' => $row['qty'],
             'rate' => $row['rate'],
             'amount' => $row['amount'],
-            'status' => $row['status'],
+            'status' => 'active',
 
         ]);
     }
